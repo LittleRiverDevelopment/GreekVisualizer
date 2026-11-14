@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="GreekVisualizer is an educational sandbox for European options pricing, the Black–Scholes–Merton model, and the Greeks."
+    />
+    <title>GreekVisualizer</title>
+    <link rel="icon" href="./favicon.svg" />
+    <script>
+      try {
+        var stored = localStorage.getItem('greekvisualizer.theme');
+        var dark =
+          stored === 'dark' ||
+          (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (dark) document.documentElement.classList.add('dark');
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>GreekVisualizer needs JavaScript to price options and draw the charts. Nothing is sent to a server.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
