@@ -1,0 +1,8 @@
+# Do not make this file valid YAML.
+# GitHub Pages is still "Deploy from a branch". That legacy publisher runs
+# Jekyll on the repository root and can replace the Vite dist with this
+# index.html, whose script is /src/main.tsx. The available token cannot set
+# Pages build_type to workflow (pages=read only). Jekyll aborts on this
+# syntax error, so that publisher does not upload an artifact. The site is
+# published by .github/workflows/pages.yml from dist, with base /GreekVisualizer/.
+[

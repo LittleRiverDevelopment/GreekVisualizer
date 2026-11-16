@@ -1,5 +1,10 @@
 name: Test and deploy
 
+# Publishes the Vite dist at /GreekVisualizer/.
+# Pages is still "Deploy from a branch", and the token here cannot switch it
+# to GitHub Actions. _config.yml is invalid YAML so that Jekyll publisher fails
+# instead of replacing this artifact with the repository source index.
+
 on:
   push:
     branches: [main]
@@ -33,6 +38,8 @@ jobs:
         run: npm run build
       - name: Check Pages base path
         run: node scripts/check-dist.mjs
+      - name: Check the legacy Jekyll publisher still fails
+        run: node scripts/check-legacy-pages.mjs
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Smoke test the production build
